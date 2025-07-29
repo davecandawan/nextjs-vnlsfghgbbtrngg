@@ -1,0 +1,266 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-stratum: 'StratumNo1-Black', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    
+    /* Apply custom fonts to specific elements */
+    .font-stratum {
+      font-family: var(--font-stratum);
+    }
+    
+    .font-inter {
+      font-family: var(--font-inter);
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-stratum);
+      font-weight: 900;
+    }
+    --primary-color: #0a0a0a;
+    --secondary-color: #f16500;
+    --text-color: #333;
+    --text-light: #666;
+    --background: #ffffff;
+    --background-alt: #f8f9fa;
+    --border-color: #e0e0e0;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+    --color-primary: #0a0a0a;
+    --color-secondary: #f16500;
+  }
+  
+  * {
+    border-color: var(--border-color);
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    @apply bg-white text-gray-900 antialiased;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-image: url('/bg.webp');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: repeat;
+    background-position: center center;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold leading-tight text-gray-900;
+    margin: 0 0 1rem;
+  }
+
+  /* Global paragraph and list item styles - excludes FooterModal and footer content */
+  :not(.prose):not(footer) > p,
+  :not(.prose):not(footer) > ul > li,
+  :not(.prose):not(footer) > ol > li,
+  :not(.prose):not(footer) p:not([class*="text-"]),
+  :not(.prose):not(footer) li:not([class*="text-"]) {
+    @apply text-xl md:text-[22px] leading-relaxed;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Reset margin for last child in lists */
+  :not(.prose) > ul > li:last-child,
+  :not(.prose) > ol > li:last-child,
+  :not(.prose) li:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Add some padding to lists */
+  :not(.prose) > ul,
+  :not(.prose) > ol,
+  :not(.prose) ul,
+  :not(.prose) ol {
+    @apply pl-6 my-4;
+  }
+  
+  /* Reset styles for FooterModal content */
+  .prose,
+  .prose p,
+  .prose li,
+  .prose div {
+    @apply text-base !important;
+    line-height: 1.5 !important;
+    margin: 0 0 1rem !important;
+  }
+  
+  .prose ul,
+  .prose ol {
+    @apply pl-5 my-2 !important;
+  }
+  
+  .prose h2 {
+    @apply text-2xl font-bold !important;
+  }
+
+  a {
+    @apply text-blue-600 hover:text-blue-800 transition-colors;
+    text-decoration: none;
+  }
+
+  button, [type='button'], [type='reset'], [type='submit'] {
+    @apply px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  input, textarea, select {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+  }
+  
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .main-content {
+    flex: 1;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .container {
+    @apply px-4 mx-auto w-full max-w-7xl;
+  }
+  
+  .section {
+    padding: 4rem 0;
+  }
+  
+  .section-title {
+    font-size: 2.25rem;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: var(--primary-color);
+  }
+  
+  @screen sm {
+    .container {
+      @apply px-6;
+    }
+  }
+  
+  @screen lg {
+    .container {
+      @apply px-8;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .section {
+      padding: 3rem 0;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    body {
+      background-size: contain;
+    }
+    
+    .container {
+      padding: 0 1.25rem;
+    }
+    
+    .section {
+      padding: 2.5rem 0;
+    }
+    
+    .section-title {
+      font-size: 1.875rem;
+      margin-bottom: 2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .section {
+      padding: 2rem 0;
+    }
+    
+    .section-title {
+      font-size: 1.625rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+  
+  .section {
+    padding: 3rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    background-size: contain;
+  }
+  
+  .container {
+    padding: 0 1.25rem;
+  }
+  
+  .section {
+    padding: 2.5rem 0;
+  }
+  
+  .section-title {
+    font-size: 1.875rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 2rem 0;
+  }
+  
+  .section-title {
+    font-size: 1.625rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
