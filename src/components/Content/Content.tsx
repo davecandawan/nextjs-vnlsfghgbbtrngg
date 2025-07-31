@@ -1,12 +1,11 @@
 import React, { useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import CallToActionButton from '../UI/CallToActionButton';
 import PackageSelection from '../PackageSelection/PackageSelection';
-import Faqs from '../Faqs/Faqs';
 import StickyBanner from '../StickyBanner/StickyBanner';
 import Reviews from '../Reviews/Reviews';
 import AddToCartButton from '../AddToCartButton/AddToCartButton';
+import { primaryFont } from '@/app/fonts';
 
 const Slideshow = dynamic(() => import('../Slideshow/Slideshow'), {
   ssr: false,
@@ -111,7 +110,9 @@ const Content: React.FC = () => {
           </div>
           <header className="text-center pb-1 -mb-6 md:mb-0 md:pt-1">
             <h1 className="text-3xl sm:text-3xl md:text-[46px] font-medium leading-[1] md:leading-tight mb-0 px-2">
-              <div className="font-jawbreak uppercase">LOVE IT OR YOU DON'T PAY A DIME!</div>
+              <div className={`font-jawbreak uppercase ${primaryFont.className}`}>
+                LOVE IT OR YOU DON'T PAY A DIME!
+              </div>
             </h1>
           </header>
           <div className="mt-1 mb-8">
@@ -164,7 +165,7 @@ const Content: React.FC = () => {
 
           <header id="benefits" className="text-center pb-1 -mb-6 md:mb-0 md:pt-1">
             <h1 className="text-3xl sm:text-3xl md:text-[46px] font-medium leading-[1] md:leading-tight mb-4 px-2">
-              <div className="font-jawbreak uppercase">
+              <div className={`font-jawbreak uppercase ${primaryFont.className}`}>
                 Why This System Ensures You{' '}
                 <span className="text-[#ff0000] underline">
                   Make The One Shot You Can't Afford To Miss
@@ -236,7 +237,7 @@ const Content: React.FC = () => {
           </div>
           <header className="text-center pt-2 pb-1 -mb-6 md:mb-0 md:pt-4">
             <h1 className="text-3xl sm:text-3xl md:text-[46px] font-medium leading-[1] md:leading-tight mb-0 px-2">
-              <div className="font-jawbreak uppercase">
+              <div className={`font-jawbreak uppercase ${primaryFont.className}`}>
                 <span className="text-[#ff0000]">Limited Free Bonus Gift (Worth $80)</span> Get Our
                 "World's Comfiest" Holster Free!
               </div>
@@ -308,7 +309,7 @@ const Content: React.FC = () => {
           </div>
           <header className="text-center pt-2 pb-1 -mb-6 md:mb-0 md:py-4">
             <h1 className="text-3xl sm:text-3xl md:text-[46px] font-medium leading-[1] md:leading-tight mb-0 px-2">
-              <div className="font-jawbreak uppercase">
+              <div className={`font-jawbreak uppercase ${primaryFont.className}`}>
                 Plus... You're Getting An Iron-Clad, Money-Back Guarantee
               </div>
             </h1>
@@ -360,7 +361,9 @@ const Content: React.FC = () => {
 
             <header id="faqs" className="text-center pt-2 pb-1 -mb-6 md:mb-0 md:py-4">
               <h1 className="text-3xl sm:text-3xl md:text-[46px] leading-[1] md:leading-tight mb-0 px-2">
-                <div className="font-jawbreak uppercase font-bold [text-shadow:0.5px_0_0_black]">
+                <div
+                  className={`font-jawbreak uppercase font-bold [text-shadow:0.5px_0_0_black] ${primaryFont.className}`}
+                >
                   Frequently Asked Questions
                 </div>
               </h1>
